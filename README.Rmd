@@ -24,6 +24,8 @@ knitr::opts_chunk$set(
 
 **`r desc::desc_get_field("Title")`:** `r desc::desc_get_field("Description")`
 
+Code adapted from [nycflights13](https://nycflights13.tidyverse.org).
+
 Feel free to use and/or fork this project!
 
 ## Installation
@@ -46,11 +48,3 @@ renv::install("jabenninghoff/mspflights")
 
 - Changelog: See "Changelog" or `NEWS.md`.
 - Planned: [TODO](TODO.md)
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-# basic example code
-```

@@ -11,8 +11,12 @@
 
 ## Overview
 
-**What the Package Does (One Line, Title Case):** What the package does
-(one paragraph).
+**Flights Between MSP and LIT, STL from April 2013 to February 2015:**
+Airline on-time data for all flights departing from or arriving to MSP,
+LIT, and STL between April 2013 and February 2015. Also includes useful
+‘metadata’ on airlines, airports, weather, and planes.
+
+Code adapted from [nycflights13](https://nycflights13.tidyverse.org).
 
 Feel free to use and/or fork this project!
 
@@ -37,11 +41,3 @@ renv::install("jabenninghoff/mspflights")
 
 - Changelog: See “Changelog” or `NEWS.md`.
 - Planned: [TODO](TODO.md)
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-# basic example code
-```
