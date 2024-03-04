@@ -6,7 +6,7 @@
 \alias{mspflights-package}
 \title{mspflights: Flights Between MSP and LIT, STL from April 2013 to February 2015}
 \description{
-What the package does (one paragraph).
+Airline on-time data for all flights departing from or arriving to MSP, LIT, and STL between April 2013 and February 2015. Also includes useful 'metadata' on airlines, airports, weather, and planes.
 }
 \seealso{
 Useful links:
