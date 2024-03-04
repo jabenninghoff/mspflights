@@ -47,8 +47,8 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
 # macOS, vim
 .DS_Store
 *.swp
 ~$*
-docs
