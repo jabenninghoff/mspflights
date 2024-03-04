@@ -9,5 +9,5 @@
 #' \item{name}{Full name.}
 #' }
 #' @examples
-#'   airlines
+#' airlines
 "airlines"
