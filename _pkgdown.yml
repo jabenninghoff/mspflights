@@ -1,0 +1,5 @@
+url: https://jabenninghoff.github.io/mspflights/
+template:
+  bootstrap: 5
+  bslib:
+    preset: bootstrap

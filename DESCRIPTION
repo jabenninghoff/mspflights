@@ -17,6 +17,7 @@ Suggests:
     devtools,
     fs,
     knitr,
+    pkgdown,
     pkgload,
     rdev (>= 1.10.1),
     rmarkdown,
