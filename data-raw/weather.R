@@ -18,7 +18,10 @@ get_asos <- function(station) {
   )
 
   dir.create("data-raw/weather", showWarnings = FALSE, recursive = TRUE)
-  r <- GET(url, query = query, write_disk(paste0("./data-raw/weather/", station, ".csv")), progress())
+  r <- GET(
+    url,
+    query = query, write_disk(paste0("./data-raw/weather/", station, ".csv")), progress()
+  )
   stop_for_status(r)
 }
 

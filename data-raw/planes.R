@@ -2,6 +2,7 @@ library(dplyr)
 library(readr)
 
 # Update URL from
+# nolint next: line_length_linter.
 # http://www.faa.gov/licenses_certificates/aircraft_certification/aircraft_registry/releasable_aircraft_download/
 src <- "https://registry.faa.gov/database/yearly/ReleasableAircraft.2013.zip"
 lcl <- "data-raw/planes"
@@ -19,7 +20,7 @@ master <- read.csv("data-raw/planes/MASTER.txt", stringsAsFactors = FALSE, strip
 
 keep <- master %>%
   as_tibble() %>%
-  select("nnum" = 1, "code" = 3, "year" = 5)
+  select(nnum = 1, code = 3, year = 5)
 
 ref <- read.csv("data-raw/planes/AcftRef.txt",
   stringsAsFactors = FALSE,

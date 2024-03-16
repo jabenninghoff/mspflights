@@ -1,12 +1,15 @@
 library(dplyr)
 library(readr)
 
-flight_url <- function(year = 2013, month) {
+flight_url <- function(year = 2013, month) { # nolint: function_argument_linter.
   base_url <- "https://www.transtats.bts.gov/PREZIP/"
-  sprintf(paste0(base_url, "On_Time_Reporting_Carrier_On_Time_Performance_1987_present_%d_%d.zip"), year, month)
+  sprintf(
+    paste0(base_url, "On_Time_Reporting_Carrier_On_Time_Performance_1987_present_%d_%d.zip"),
+    year, month
+  )
 }
 
-download_month <- function(year = 2013, month) {
+download_month <- function(year = 2013, month) { # nolint: function_argument_linter.
   url <- flight_url(year, month)
 
   temp <- tempfile(fileext = ".zip")
@@ -39,20 +42,23 @@ get_nyc <- function(path) {
   )
   read_csv(path, col_types = col_types) %>%
     select(
-      year = Year, month = Month, day = DayofMonth,
-      dep_time = DepTime, sched_dep_time = CRSDepTime, dep_delay = DepDelay,
-      arr_time = ArrTime, sched_arr_time = CRSArrTime, arr_delay = ArrDelay,
-      carrier = Reporting_Airline, flight = Flight_Number_Reporting_Airline, tailnum = Tail_Number,
-      origin = Origin, dest = Dest,
-      air_time = AirTime, distance = Distance
+      year = "Year", month = "Month", day = "DayofMonth",
+      dep_time = "DepTime", sched_dep_time = "CRSDepTime", dep_delay = "DepDelay",
+      arr_time = "ArrTime", sched_arr_time = "CRSArrTime", arr_delay = "ArrDelay",
+      carrier = "Reporting_Airline", flight = "Flight_Number_Reporting_Airline",
+      tailnum = "Tail_Number", origin = "Origin", dest = "Dest",
+      air_time = "AirTime", distance = "Distance"
     ) %>%
-    filter(origin %in% c("JFK", "LGA", "EWR")) %>%
+    filter(.data$origin %in% c("JFK", "LGA", "EWR")) %>%
     mutate(
-      hour = sched_dep_time %/% 100,
-      minute = sched_dep_time %% 100,
-      time_hour = lubridate::make_datetime(year, month, day, hour, 0, 0, tz = "America/New_York")
+      hour = .data$sched_dep_time %/% 100,
+      minute = .data$sched_dep_time %% 100,
+      time_hour = lubridate::make_datetime(
+        .data$year, .data$month, .data$day, .data$hour, 0, 0,
+        tz = "America/New_York"
+      )
     ) %>%
-    arrange(year, month, day, dep_time)
+    arrange(.data$year, .data$month, .data$day, .data$dep_time)
 }
 
 all <- lapply(dir("data-raw/flights", full.names = TRUE), get_nyc)
