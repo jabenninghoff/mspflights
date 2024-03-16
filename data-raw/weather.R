@@ -13,7 +13,7 @@ get_asos <- function(station) {
   query <- list(
     station = station, data = "all",
     year1 = "2013", month1 = "1", day1 = "1",
-    year2 = "2013", month2 = "12", day2 = "31", tz = "GMT",
+    year2 = "2013", month2 = "12", day2 = "31", tz = "Etc/UTC",
     format = "comma", latlon = "no", direct = "yes"
   )
 
