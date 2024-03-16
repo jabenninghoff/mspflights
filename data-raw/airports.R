@@ -3,6 +3,13 @@ library(readr)
 library(purrr)
 library(ggplot2)
 
+# TODO: remove UTF-8 characters from airports.dat
+#
+# R CMD check results:
+#
+# > checking data for non-ASCII characters ... NOTE
+#     Note: found 5 marked UTF-8 strings
+#
 if (!file.exists("data-raw/airports.dat")) {
   download.file(
     "https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat",
