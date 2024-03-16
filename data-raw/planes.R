@@ -26,9 +26,11 @@ ref <- read.csv("data-raw/planes/AcftRef.txt",
   strip.white = TRUE
 )
 names(ref) <-
-  c("mfr", "model", "type.acft", "type.eng", "ac.category",
+  c(
+    "mfr", "model", "type.acft", "type.eng", "ac.category",
     "amat.tc.built", "no.eng", "no.seats", "ac.weight", "speed", "code",
-    "kit.code", "extra")
+    "kit.code", "extra"
+  )
 
 ref <- ref %>%
   as_tibble() %>%
