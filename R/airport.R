@@ -2,7 +2,7 @@
 #'
 #' Useful metadata about airports.
 #'
-#' @source <https://openflights.org/data.html>, downloaded 2014-06-27
+#' @source <https://openflights.org>, downloaded 2014-06-27
 #' @format A data frame with columns:
 #' \describe{
 #'  \item{faa}{FAA airport code.}
