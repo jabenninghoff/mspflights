@@ -210,7 +210,7 @@ CID,The Eastern Iowa Airport,41.88470077514648,-91.71080017089844,869,-6,A,Ameri
 CIK,Chalkyitsik Airport,66.6449966431,-143.740005493,544,-9,A,America/Anchorage
 CIU,Chippewa County International Airport,46.25080108642578,-84.47239685058594,800,-5,A,America/New_York
 CKB,North Central West Virginia Airport,39.2966003418,-80.2281036377,1217,-5,A,America/New_York
-CKV,Clarksville–Montgomery County Regional Airport,36.6218986511,-87.4150009155,550,-6,A,America/Chicago
+CKV,Clarksville-Montgomery County Regional Airport,36.6218986511,-87.4150009155,550,-6,A,America/Chicago
 CLD,Mc Clellan-Palomar Airport,33.12829971,-117.2799988,331,-8,A,America/Los_Angeles
 CLE,Cleveland Hopkins International Airport,41.4117012024,-81.8498001099,791,-5,A,America/New_York
 CLL,Easterwood Field,30.58860016,-96.36380005,320,-6,A,America/Chicago
@@ -473,8 +473,8 @@ GUS,Grissom Air Reserve Base,40.6481018066,-86.1520996094,812,-5,A,America/New_Y
 GUY,Guymon Municipal Airport,36.6851005554,-101.508003235,3123,-5,A,NA
 GVL,Lee Gilmer Memorial Airport,34.27259827,-83.8302002,1276,-5,A,America/New_York
 GVT,Majors Airport,33.0677986145,-96.0652999878,535,-6,A,America/Chicago
-GWO,Greenwood–Leflore Airport,33.4943008423,-90.0847015381,162,-6,A,America/Chicago
-GXY,Greeley–Weld County Airport,40.4374008179,-104.633003235,4697,-7,A,NA
+GWO,Greenwood-Leflore Airport,33.4943008423,-90.0847015381,162,-6,A,America/Chicago
+GXY,Greeley-Weld County Airport,40.4374008179,-104.633003235,4697,-7,A,NA
 GYR,Phoenix Goodyear Airport,33.4225006104,-112.375999451,968,-7,N,America/Phoenix
 GYY,Gary Chicago International Airport,41.61629867553711,-87.41280364990234,591,-6,A,America/Chicago
 HAF,Half Moon Bay Airport,37.513401031499995,-122.500999451,66,-8,A,NA
@@ -1003,7 +1003,7 @@ RND,Randolph Air Force Base,29.52969933,-98.27890015,761,-6,A,America/Chicago
 RNO,Reno Tahoe International Airport,39.49909973144531,-119.76799774169922,4415,-8,A,America/Los_Angeles
 RNT,Renton Municipal Airport,47.4930992126,-122.216003418,32,-8,A,America/Los_Angeles
 RNZ,Jasper County Airport,40.9478988647,-87.1826019287,698,-5,A,NA
-ROA,Roanoke–Blacksburg Regional Airport,37.3255,-79.975403,1175,-5,A,America/New_York
+ROA,Roanoke-Blacksburg Regional Airport,37.3255,-79.975403,1175,-5,A,America/New_York
 ROC,Greater Rochester International Airport,43.118900299072266,-77.67240142822266,559,-5,A,America/New_York
 ROW,Roswell International Air Center Airport,33.30160140991211,-104.53099822998048,3671,-7,A,America/Denver
 RSH,Russian Mission Airport,61.7788848877,-161.319458008,51,-9,A,America/Anchorage
@@ -1173,7 +1173,7 @@ TWF,Joslin Field Magic Valley Regional Airport,42.4818,-114.487999,4154,-7,A,Ame
 TXK,Texarkana Regional Webb Field,33.45370101928711,-93.990997314453125,390,-6,A,America/Chicago
 TYR,Tyler Pounds Regional Airport,32.35409927368164,-95.40239715576172,544,-6,A,America/Chicago
 TYS,McGhee Tyson Airport,35.81100082,-83.9940033,981,-5,A,America/New_York
-TZR,Taszár Air Base,46.39310073852539,17.917499542236328,531,1,A,Europe/Budapest
+TZR,Taszar Air Base,46.39310073852539,17.917499542236328,531,1,A,Europe/Budapest
 UDD,Bermuda Dunes Airport,33.748401641846,-116.27500152588,73,-8,A,America/Los_Angeles
 UGN,Waukegan National Airport,42.422199249268,-87.867897033691,727,-6,A,America/Chicago
 UIN,Quincy Regional Baldwin Field,39.94269943,-91.19460297,768,-6,A,America/Chicago

@@ -3,18 +3,17 @@ library(readr)
 library(purrr)
 library(ggplot2)
 
-# TODO: remove UTF-8 characters from airports.dat
-#
-# R CMD check results:
-#
-# > checking data for non-ASCII characters ... NOTE
-#     Note: found 5 marked UTF-8 strings
-#
 if (!file.exists("data-raw/airports.dat")) {
   download.file(
     "https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat",
     "data-raw/airports.dat"
   )
+  readLines("data-raw/airports.dat") %>%
+    # run stri_trans_general first as iconv adds unwanted punctuation on macOS
+    stringi::stri_trans_general("latin-ascii") %>%
+    # convert any remaining UTF-8 (2646,"Gral. Bernardo O'Higgins Airport")
+    iconv(from = "utf-8", to = "ascii//translit") %>%
+    writeLines("data-raw/airports.dat")
 }
 
 raw <- read_csv("data-raw/airports.dat",
