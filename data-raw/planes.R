@@ -7,10 +7,13 @@ library(readr)
 src <- "https://registry.faa.gov/database/yearly/ReleasableAircraft.2013.zip"
 lcl <- "data-raw/planes"
 
-# TODO: fix download - workaround is to download and extract src zip manually
+# minimal user agent and headers needed to download file
+opt <- list(HTTPUserAgent = "Mozilla/5.0")
+hdr <- c(`Accept-Language` = "en-US,en", Connection = "keep-alive")
+
 if (!file.exists(lcl)) {
   tmp <- tempfile(fileext = ".zip")
-  download.file(src, tmp)
+  withr::with_options(opt, download.file(src, tmp, headers = hdr))
 
   dir.create(lcl)
   unzip(tmp, exdir = lcl, junkpaths = TRUE)
