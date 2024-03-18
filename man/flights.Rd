@@ -34,7 +34,7 @@ RITA, Bureau of transportation statistics,
 flights
 }
 \description{
-On-time data for all flights that departed NYC (i.e. JFK, LGA or EWR) in
-2013.
+On-time data for all flights that departed Minneapolis-Saint Paul International Airport (MSP),
+2013-2015.
 }
 \keyword{datasets}

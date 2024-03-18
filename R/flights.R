@@ -1,7 +1,7 @@
 #' Flights data
 #'
-#' On-time data for all flights that departed NYC (i.e. JFK, LGA or EWR) in
-#' 2013.
+#' On-time data for all flights that departed Minneapolis-Saint Paul International Airport (MSP),
+#'   2013-2015.
 #'
 #' @source RITA, Bureau of transportation statistics,
 #'  <https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FGJ&QO_fu146_anzr=b0-gvzr>
@@ -26,7 +26,6 @@
 #'   Along with `origin`, can be used to join flights data to [`weather`] data.}
 #' }
 "flights"
-
 
 #' @importFrom tibble tibble
 NULL

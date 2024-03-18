@@ -1,3 +1,9 @@
+# mspflights 0.1.0
+
+Updated release with on-time data and metadata for flights departing from MSP 2013-2015:
+
+* Updated `flights` for MSP departures 2013-2015
+
 # mspflights 0.0.1
 
 Initial release implementing an updated version of [nycflights13](https://nycflights13.tidyverse.org):

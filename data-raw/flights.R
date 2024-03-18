@@ -34,11 +34,11 @@ download_year <- function(year) {
   lapply(missing, download_month, year = year)
 }
 
-years <- 2013
+years <- 2013:2015
 
 lapply(years, download_year)
 
-get_nyc <- function(path) {
+get_msp <- function(path) {
   col_types <- cols(
     DepTime = col_integer(),
     ArrTime = col_integer(),
@@ -55,19 +55,19 @@ get_nyc <- function(path) {
       tailnum = "Tail_Number", origin = "Origin", dest = "Dest",
       air_time = "AirTime", distance = "Distance"
     ) |>
-    filter(.data$origin %in% c("JFK", "LGA", "EWR")) |>
+    filter(.data$origin == "MSP") |>
     mutate(
       hour = .data$sched_dep_time %/% 100,
       minute = .data$sched_dep_time %% 100,
       time_hour = lubridate::make_datetime(
         .data$year, .data$month, .data$day, .data$hour, 0, 0,
-        tz = "America/New_York"
+        tz = "America/Chicago"
       )
     ) |>
     arrange(.data$year, .data$month, .data$day, .data$dep_time)
 }
 
-all <- lapply(dir("data-raw/flights", full.names = TRUE), get_nyc)
+all <- lapply(dir("data-raw/flights", full.names = TRUE), get_msp)
 flights <- bind_rows(all)
 flights$tailnum[flights$tailnum == ""] <- NA
 
