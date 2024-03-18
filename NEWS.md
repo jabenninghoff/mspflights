@@ -14,6 +14,8 @@ Updated release with on-time data and metadata for flights departing from MSP 20
 
 * Updated examples
 
+Future releases will add relevant departure data for LIT, hubs (ATL, DTW, MEM, DFW, ORD), and STL.
+
 # mspflights 0.0.1
 
 Initial release implementing an updated version of [nycflights13](https://nycflights13.tidyverse.org):
