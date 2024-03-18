@@ -46,7 +46,7 @@ get_nyc <- function(path) {
     CRSArrTime = col_integer(),
     Reporting_Airline = col_character()
   )
-  read_csv(path, col_types = col_types) %>%
+  read_csv(path, col_types = col_types) |>
     select(
       year = "Year", month = "Month", day = "DayofMonth",
       dep_time = "DepTime", sched_dep_time = "CRSDepTime", dep_delay = "DepDelay",
@@ -54,8 +54,8 @@ get_nyc <- function(path) {
       carrier = "Reporting_Airline", flight = "Flight_Number_Reporting_Airline",
       tailnum = "Tail_Number", origin = "Origin", dest = "Dest",
       air_time = "AirTime", distance = "Distance"
-    ) %>%
-    filter(.data$origin %in% c("JFK", "LGA", "EWR")) %>%
+    ) |>
+    filter(.data$origin %in% c("JFK", "LGA", "EWR")) |>
     mutate(
       hour = .data$sched_dep_time %/% 100,
       minute = .data$sched_dep_time %% 100,
@@ -63,7 +63,7 @@ get_nyc <- function(path) {
         .data$year, .data$month, .data$day, .data$hour, 0, 0,
         tz = "America/New_York"
       )
-    ) %>%
+    ) |>
     arrange(.data$year, .data$month, .data$day, .data$dep_time)
 }
 
