@@ -1,4 +1,5 @@
-# From https://mesonet.agron.iastate.edu/request/download.phtml?network=NY_ASOS
+# From https://mesonet.agron.iastate.edu/request/download.phtml?network=MN_ASOS
+# TODO: rewrite to match style, libraries, approach in other data-raw R scripts
 
 library(dplyr)
 library(readr)
@@ -13,7 +14,7 @@ get_asos <- function(station) {
   query <- list(
     station = station, data = "all",
     year1 = "2013", month1 = "1", day1 = "1",
-    year2 = "2013", month2 = "12", day2 = "31", tz = "Etc/UTC",
+    year2 = "2015", month2 = "12", day2 = "31", tz = "Etc/UTC",
     format = "comma", latlon = "no", direct = "yes"
   )
 
@@ -25,7 +26,7 @@ get_asos <- function(station) {
   stop_for_status(r)
 }
 
-stations <- c("JFK", "LGA", "EWR")
+stations <- "MSP"
 paths <- paste0(stations, ".csv")
 missing <- stations[!(paths %in% dir("data-raw/weather/"))]
 walk(missing, get_asos)
@@ -73,7 +74,7 @@ raw2 <- raw |>
     wind_gust = wind_gust * 1.15078,
     # partition time into hour + minute
     minute = minute(time),
-    time = update(time, minute = 0)
+    time = update(time, minutes = 0)
   )
 
 # Handle repeated records for an hour: precipitation is cumulated hourly until
@@ -88,13 +89,13 @@ raw3 <- raw2 |>
 # Match structure to flights
 weather <- raw3 |>
   mutate(
-    time = with_tz(time, "America/New_York"),
+    time = with_tz(time, "America/Chicago"),
     year = as.integer(year(time)),
     month = as.integer(month(time)),
     day = mday(time),
     hour = hour(time)
   ) |>
-  filter(year == 2013L) |>
+  filter(year >= 2013L, year <= 2015L) |>
   select(origin, year:hour, temp:visib, time_hour = time)
 
 write_csv(weather, "data-raw/weather.csv")

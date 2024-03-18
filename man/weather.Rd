@@ -28,6 +28,6 @@ ASOS download from Iowa Environmental Mesonet,
 weather
 }
 \description{
-Hourly meteorological data for LGA, JFK and EWR.
+Hourly meteorological data for MSP, 2013-2015.
 }
 \keyword{datasets}
