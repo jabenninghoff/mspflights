@@ -22,6 +22,7 @@
 #'
 #' if (require("dplyr")) {
 #'   # Flights that don't have plane metadata
-#'   flights |> anti_join(planes, "tailnum")
+#'   flights |>
+#'     anti_join(planes, "tailnum")
 #' }
 "planes"
