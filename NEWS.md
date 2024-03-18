@@ -6,6 +6,8 @@ Updated release with on-time data and metadata for flights departing from MSP 20
 
 * Updated `airlines` for new `flights` data
 
+* Updated `airports` documentation
+
 # mspflights 0.0.1
 
 Initial release implementing an updated version of [nycflights13](https://nycflights13.tidyverse.org):
