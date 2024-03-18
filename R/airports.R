@@ -2,7 +2,9 @@
 #'
 #' Useful metadata about airports.
 #'
-#' @source <https://openflights.org>, downloaded 2014-06-27
+#' @source <https://github.com/jpatokal/openflights/blob/master/data/airports.dat>, last updated
+# nolint next: line_length_linter.
+#'   [2019-05-13](https://github.com/jpatokal/openflights/blob/5234b5b72fafc727040cac42d2bb67d2a1d71f89/data/airports.dat)
 #' @format A data frame with columns:
 #' \describe{
 #'  \item{faa}{FAA airport code.}
@@ -22,7 +24,8 @@
 #'   airports |>
 #'     rename(dest = faa) |>
 #'     semi_join(flights)
-#'   flights |> anti_join(airports |> rename(dest = faa))
+#'   flights |>
+#'     anti_join(airports |> rename(dest = faa))
 #'   airports |>
 #'     rename(origin = faa) |>
 #'     semi_join(flights)
