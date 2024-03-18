@@ -1,6 +1,6 @@
 Package: mspflights
 Title: Flights Between MSP and LIT, STL from April 2013 to February 2015
-Version: 0.0.1.9000
+Version: 0.1.0
 Authors@R: 
     person("John", "Benninghoff", , "jbenninghoff@mac.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6230-4742"))
