@@ -20,14 +20,16 @@
 #' @examples
 #' airports
 #'
-#' if (require("dplyr")) {
-#'   airports |>
-#'     rename(dest = faa) |>
-#'     semi_join(flights)
-#'   flights |>
-#'     anti_join(airports |> rename(dest = faa))
-#'   airports |>
-#'     rename(origin = faa) |>
-#'     semi_join(flights)
-#' }
+#' library(dplyr, warn.conflicts = FALSE)
+#'
+#' airports |>
+#'   rename(dest = faa) |>
+#'   semi_join(flights)
+#'
+#' flights |>
+#'   anti_join(airports |> rename(dest = faa))
+#'
+#' airports |>
+#'   rename(origin = faa) |>
+#'   semi_join(flights)
 "airports"

@@ -12,6 +12,8 @@ Updated release with on-time data and metadata for flights departing from MSP 20
 
 * Updated `weather` for MSP 2013-2015
 
+* Updated examples
+
 # mspflights 0.0.1
 
 Initial release implementing an updated version of [nycflights13](https://nycflights13.tidyverse.org):
