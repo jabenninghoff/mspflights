@@ -1,6 +1,6 @@
 #' Hourly weather data
 #'
-#' Hourly meteorological data for LGA, JFK and EWR.
+#' Hourly meteorological data for MSP, 2013-2015.
 #'
 #' @source ASOS download from Iowa Environmental Mesonet,
 #'   <https://mesonet.agron.iastate.edu/request/download.phtml>.
