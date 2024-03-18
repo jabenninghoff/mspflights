@@ -1,6 +1,5 @@
 library(dplyr)
 library(readr)
-library(purrr)
 library(ggplot2)
 
 if (!file.exists("data-raw/airports.dat")) {
@@ -8,11 +7,11 @@ if (!file.exists("data-raw/airports.dat")) {
     "https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat",
     "data-raw/airports.dat"
   )
-  readLines("data-raw/airports.dat") %>%
+  readLines("data-raw/airports.dat") |>
     # run stri_trans_general first as iconv adds unwanted punctuation on macOS
-    stringi::stri_trans_general("latin-ascii") %>%
+    stringi::stri_trans_general("latin-ascii") |>
     # convert any remaining UTF-8 (2646,"Gral. Bernardo O'Higgins Airport")
-    iconv(from = "utf-8", to = "ascii//translit") %>%
+    iconv(from = "utf-8", to = "ascii//translit") |>
     writeLines("data-raw/airports.dat")
 }
 
@@ -23,17 +22,17 @@ raw <- read_csv("data-raw/airports.dat",
   na = "\\N"
 )
 
-airports <- raw %>%
-  filter(country == "United States", faa != "") %>%
-  select(faa, name, lat, lon, alt, tz, dst, tzone) %>%
-  group_by(faa) %>%
-  slice(1) %>%
+airports <- raw |>
+  filter(country == "United States", faa != "") |>
+  select(faa, name, lat, lon, alt, tz, dst, tzone) |>
+  group_by(faa) |>
+  slice(1) |>
   ungroup() # take first if duplicated
 
 
 # Verify the results
-airports %>%
-  filter(lon < 0) %>%
+airports |>
+  filter(lon < 0) |>
   ggplot(aes(lon, lat)) +
   geom_point(aes(colour = factor(tzone)), show.legend = FALSE) +
   coord_quickmap() +

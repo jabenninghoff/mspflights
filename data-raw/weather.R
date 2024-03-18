@@ -53,7 +53,7 @@ all <- map(paths,
 raw <- bind_rows(all)
 
 # Rename variables and adjust units
-raw2 <- raw %>%
+raw2 <- raw |>
   select(
     origin = station,
     time = valid,
@@ -66,7 +66,7 @@ raw2 <- raw %>%
     precip = p01i,
     pressure = mslp,
     visib = vsby
-  ) %>%
+  ) |>
   mutate(
     # convert to mph
     wind_speed = wind_speed * 1.15078,
@@ -79,22 +79,22 @@ raw2 <- raw %>%
 # Handle repeated records for an hour: precipitation is cumulated hourly until
 # minute 51, after which it resets to zero. For more details and additional
 # links see https://github.com/rmcd1024/daily_precipitation_totals
-raw3 <- raw2 %>%
-  filter(minute <= 51) %>%
-  group_by(origin, time) %>%
-  summarise_all(max) %>%
+raw3 <- raw2 |>
+  filter(minute <= 51) |>
+  group_by(origin, time) |>
+  summarise_all(max) |>
   ungroup()
 
 # Match structure to flights
-weather <- raw3 %>%
+weather <- raw3 |>
   mutate(
     time = with_tz(time, "America/New_York"),
     year = as.integer(year(time)),
     month = as.integer(month(time)),
     day = mday(time),
     hour = hour(time)
-  ) %>%
-  filter(year == 2013L) %>%
+  ) |>
+  filter(year == 2013L) |>
   select(origin, year:hour, temp:visib, time_hour = time)
 
 write_csv(weather, "data-raw/weather.csv")

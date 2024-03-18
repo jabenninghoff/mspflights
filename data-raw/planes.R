@@ -21,8 +21,8 @@ if (!file.exists(lcl)) {
 
 master <- read.csv("data-raw/planes/MASTER.txt", stringsAsFactors = FALSE, strip.white = TRUE)
 
-keep <- master %>%
-  as_tibble() %>%
+keep <- master |>
+  as_tibble() |>
   select(nnum = 1, code = 3, year = 5)
 
 ref <- read.csv("data-raw/planes/AcftRef.txt",
@@ -36,14 +36,14 @@ names(ref) <-
     "kit.code", "extra"
   )
 
-ref <- ref %>%
-  as_tibble() %>%
+ref <- ref |>
+  as_tibble() |>
   select(code, mfr, model, type.acft, type.eng, no.eng, no.seats, speed)
 
 # Combine together
 
-all <- keep %>%
-  inner_join(ref) %>%
+all <- keep |>
+  inner_join(ref) |>
   select(-code)
 all$speed[all$speed == 0] <- NA
 all$no.eng[all$no.eng == 0] <- NA
@@ -68,13 +68,13 @@ all$tailnum <- paste0("N", all$nnum)
 
 load("data/flights.rda")
 
-planes <- all %>%
+planes <- all |>
   select(
     tailnum, year, type,
     manufacturer = mfr, model = model,
     engines = no.eng, seats = no.seats, speed, engine
-  ) %>%
-  semi_join(flights, "tailnum") %>%
+  ) |>
+  semi_join(flights, "tailnum") |>
   arrange(tailnum)
 
 write_csv(planes, "data-raw/planes.csv")
