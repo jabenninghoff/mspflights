@@ -1,7 +1,7 @@
 library(dplyr)
 library(readr)
 
-flight_url <- function(year = 2013, month) { # nolint: function_argument_linter.
+flight_url <- function(year, month) {
   base_url <- "https://www.transtats.bts.gov/PREZIP/"
   sprintf(
     paste0(base_url, "On_Time_Reporting_Carrier_On_Time_Performance_1987_present_%d_%d.zip"),
@@ -9,7 +9,7 @@ flight_url <- function(year = 2013, month) { # nolint: function_argument_linter.
   )
 }
 
-download_month <- function(year = 2013, month) { # nolint: function_argument_linter.
+download_month <- function(year, month) {
   url <- flight_url(year, month)
 
   temp <- tempfile(fileext = ".zip")
@@ -22,15 +22,21 @@ download_month <- function(year = 2013, month) { # nolint: function_argument_lin
   unzip(temp, exdir = "data-raw/flights", junkpaths = TRUE, files = csv)
 
   src <- paste0("data-raw/flights/", csv)
-  dst <- paste0("data-raw/flights/", "2013-", month, ".csv")
+  dst <- paste0("data-raw/flights/", year, "-", month, ".csv")
   file.rename(src, dst)
 }
 
-months <- 1:12
-needed <- paste0("2013-", months, ".csv")
-missing <- months[!(needed %in% dir("data-raw/flights"))]
+download_year <- function(year) {
+  months <- 1:12
+  needed <- paste0(year, "-", months, ".csv")
+  missing <- months[!(needed %in% dir("data-raw/flights"))]
 
-lapply(missing, download_month, year = 2013)
+  lapply(missing, download_month, year = year)
+}
+
+years <- 2013
+
+lapply(years, download_year)
 
 get_nyc <- function(path) {
   col_types <- cols(
