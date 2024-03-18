@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">mspflights</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Airport metadata</h1>
-      <small class="dont-index">Source: <a href="https://github.com/jabenninghoff/mspflights/blob/HEAD/R/airport.R" class="external-link"><code>R/airport.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/jabenninghoff/mspflights/blob/HEAD/R/airports.R" class="external-link"><code>R/airports.R</code></a></small>
       <div class="d-none name"><code>airports.Rd</code></div>
     </div>
 
@@ -83,7 +83,8 @@ U = unknown. N = no dst.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
-    <p><a href="https://openflights.org" class="external-link">https://openflights.org</a>, downloaded 2014-06-27</p>
+    <p><a href="https://github.com/jpatokal/openflights/blob/master/data/airports.dat" class="external-link">https://github.com/jpatokal/openflights/blob/master/data/airports.dat</a>, last updated
+<a href="https://github.com/jpatokal/openflights/blob/5234b5b72fafc727040cac42d2bb67d2a1d71f89/data/airports.dat" class="external-link">2019-05-13</a></p>
     </div>
 
     <div class="section level2">
@@ -104,33 +105,56 @@ U = unknown. N = no dst.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ACT   Waco Regional Airport               31.6  -<span style="color: #BB0000;">97.2</span>   516    -<span style="color: #BB0000;">6</span> A     Amer…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,241 more rows</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://dplyr.tidyverse.org" class="external-link">"dplyr"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="va">airports</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>dest <span class="op">=</span> <span class="va">faa</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">semi_join</a></span><span class="op">(</span><span class="va">flights</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="va">flights</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">anti_join</a></span><span class="op">(</span><span class="va">airports</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>dest <span class="op">=</span> <span class="va">faa</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="va">airports</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>origin <span class="op">=</span> <span class="va">faa</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">semi_join</a></span><span class="op">(</span><span class="va">flights</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: dplyr</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘dplyr’</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:stats’:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     filter, lag</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:base’:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">airports</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>dest <span class="op">=</span> <span class="va">faa</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">semi_join</a></span><span class="op">(</span><span class="va">flights</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Joining with `by = join_by(dest)`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 125 × 8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    dest  name                                 lat    lon   alt    tz dst   tzone</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ABQ   Albuquerque International Sunport   35.0 -<span style="color: #BB0000;">107.</span>   <span style="text-decoration: underline;">5</span>355    -<span style="color: #BB0000;">7</span> A     Amer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> ABR   Aberdeen Regional Airport           45.4  -<span style="color: #BB0000;">98.4</span>  <span style="text-decoration: underline;">1</span>302    -<span style="color: #BB0000;">6</span> A     Amer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> ALB   Albany International Airport        42.7  -<span style="color: #BB0000;">73.8</span>   285    -<span style="color: #BB0000;">5</span> A     Amer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> ANC   Ted Stevens Anchorage Internation…  61.2 -<span style="color: #BB0000;">150.</span>    152    -<span style="color: #BB0000;">9</span> A     Amer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> APN   Alpena County Regional Airport      45.1  -<span style="color: #BB0000;">83.6</span>   690    -<span style="color: #BB0000;">5</span> A     Amer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> ASE   Aspen-Pitkin Co/Sardy Field         39.2 -<span style="color: #BB0000;">107.</span>   <span style="text-decoration: underline;">7</span>820    -<span style="color: #BB0000;">7</span> A     Amer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> ATL   Hartsfield Jackson Atlanta Intern…  33.6  -<span style="color: #BB0000;">84.4</span>  <span style="text-decoration: underline;">1</span>026    -<span style="color: #BB0000;">5</span> A     Amer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ATW   Appleton International Airport      44.3  -<span style="color: #BB0000;">88.5</span>   918    -<span style="color: #BB0000;">6</span> A     Amer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> AUS   Austin Bergstrom International Ai…  30.2  -<span style="color: #BB0000;">97.7</span>   542    -<span style="color: #BB0000;">6</span> A     Amer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> AZO   Kalamazoo Battle Creek Internatio…  42.2  -<span style="color: #BB0000;">85.6</span>   874    -<span style="color: #BB0000;">5</span> A     Amer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 115 more rows</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">flights</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">anti_join</a></span><span class="op">(</span><span class="va">airports</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>dest <span class="op">=</span> <span class="va">faa</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Joining with `by = join_by(dest)`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 80 × 19</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">2</span>013     1     5      818            745        33     <span style="text-decoration: underline;">1</span>519           <span style="text-decoration: underline;">1</span>502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">2</span>013     1    12      738            745        -<span style="color: #BB0000;">7</span>     <span style="text-decoration: underline;">1</span>500           <span style="text-decoration: underline;">1</span>502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">2</span>013     1    19      827            745        42     <span style="text-decoration: underline;">1</span>525           <span style="text-decoration: underline;">1</span>502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">2</span>013     1    26      745            745         0     <span style="text-decoration: underline;">1</span>448           <span style="text-decoration: underline;">1</span>502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">2</span>013    12    21      944            900        44     <span style="text-decoration: underline;">1</span>717           <span style="text-decoration: underline;">1</span>611</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">2</span>013    12    28      931            900        31     <span style="text-decoration: underline;">1</span>641           <span style="text-decoration: underline;">1</span>611</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">2</span>013     2     2      753            745         8     <span style="text-decoration: underline;">1</span>456           <span style="text-decoration: underline;">1</span>502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">2</span>013     2     9      742            745        -<span style="color: #BB0000;">3</span>     <span style="text-decoration: underline;">1</span>428           <span style="text-decoration: underline;">1</span>502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">2</span>013     2    16      740            745        -<span style="color: #BB0000;">5</span>     <span style="text-decoration: underline;">1</span>518           <span style="text-decoration: underline;">1</span>502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">2</span>013     2    23      738            745        -<span style="color: #BB0000;">7</span>     <span style="text-decoration: underline;">1</span>447           <span style="text-decoration: underline;">1</span>502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 70 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">airports</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>origin <span class="op">=</span> <span class="va">faa</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">semi_join</a></span><span class="op">(</span><span class="va">flights</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Joining with `by = join_by(origin)`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   origin name                                  lat   lon   alt    tz dst   tzone</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> EWR    Newark Liberty International Airpo…  40.7 -<span style="color: #BB0000;">74.2</span>    18    -<span style="color: #BB0000;">5</span> A     Amer…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> JFK    John F Kennedy International Airpo…  40.6 -<span style="color: #BB0000;">73.8</span>    13    -<span style="color: #BB0000;">5</span> A     Amer…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> LGA    La Guardia Airport                   40.8 -<span style="color: #BB0000;">73.9</span>    21    -<span style="color: #BB0000;">5</span> A     Amer…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> MSP    Minneapolis-St Paul International/…  44.9 -<span style="color: #BB0000;">93.2</span>   841    -<span style="color: #BB0000;">6</span> A     Amer…</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
