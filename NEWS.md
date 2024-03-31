@@ -1,3 +1,7 @@
+# mspflights 0.1.1
+
+* Maintenance updates
+
 # mspflights 0.1.0
 
 Updated release with on-time data and metadata for flights departing from MSP 2013-2015:
