@@ -1,3 +1,7 @@
+# mspflights 0.1.2
+
+* Updated for R 4.4.0
+
 # mspflights 0.1.1
 
 * Maintenance updates
