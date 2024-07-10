@@ -18,6 +18,7 @@ dewpoint
 dst
 metadata’
 nycflights
+pkgdown
 renv
 tailnumbers
 tidyverse

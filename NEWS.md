@@ -1,3 +1,7 @@
+# mspflights 0.1.3
+
+* Enabled pkgdown [light switch](https://pkgdown.r-lib.org/articles/customise.html#light-switch)
+
 # mspflights 0.1.2
 
 * Updated for R 4.4.0
