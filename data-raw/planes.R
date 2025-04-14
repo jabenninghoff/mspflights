@@ -3,8 +3,10 @@ library(readr)
 
 # Update URL from
 # nolint next: line_length_linter.
-# http://www.faa.gov/licenses_certificates/aircraft_certification/aircraft_registry/releasable_aircraft_download/
-src <- "https://registry.faa.gov/database/yearly/ReleasableAircraft.2013.zip"
+# https://www.faa.gov/licenses_certificates/aircraft_certification/aircraft_registry/releasable_aircraft_download/
+# original (broken) src <- "https://registry.faa.gov/database/yearly/ReleasableAircraft.2013.zip"
+# nolint next: line_length_linter.
+src <-"https://web.archive.org/web/20240615030307/https://registry.faa.gov/database/yearly/ReleasableAircraft.2013.zip"
 lcl <- "data-raw/planes"
 
 # minimal user agent and headers needed to download file
