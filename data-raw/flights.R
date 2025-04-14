@@ -71,4 +71,5 @@ all <- lapply(dir("data-raw/flights", full.names = TRUE), get_msp)
 flights <- bind_rows(all)
 flights$tailnum[!nzchar(flights$tailnum, keepNA = TRUE)] <- NA
 
+write_csv(flights, "data-raw/flights.csv")
 save(flights, file = "data/flights.rda", compress = "bzip2")
