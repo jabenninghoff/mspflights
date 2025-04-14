@@ -10,10 +10,10 @@ flight_url <- function(year, month) {
 }
 
 download_month <- function(year, month) {
-  url <- flight_url(year, month)
+  file_url <- flight_url(year, month)
 
   temp <- tempfile(fileext = ".zip")
-  download.file(url, temp)
+  download.file(file_url, temp)
 
   files <- unzip(temp, list = TRUE)
   # Only extract biggest file
@@ -27,11 +27,11 @@ download_month <- function(year, month) {
 }
 
 download_year <- function(year) {
-  months <- 1:12
-  needed <- paste0(year, "-", months, ".csv")
-  missing <- months[!(needed %in% dir("data-raw/flights"))]
+  file_months <- 1:12
+  files_needed <- paste0(year, "-", file_months, ".csv")
+  files_missing <- file_months[!(files_needed %in% dir("data-raw/flights"))]
 
-  lapply(missing, download_month, year = year)
+  lapply(files_missing, download_month, year = year)
 }
 
 years <- 2013:2015
@@ -69,6 +69,6 @@ get_msp <- function(path) {
 
 all <- lapply(dir("data-raw/flights", full.names = TRUE), get_msp)
 flights <- bind_rows(all)
-flights$tailnum[flights$tailnum == ""] <- NA
+flights$tailnum[!nzchar(flights$tailnum, keepNA = TRUE)] <- NA
 
 save(flights, file = "data/flights.rda", compress = "bzip2")
