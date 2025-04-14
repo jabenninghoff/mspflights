@@ -2,6 +2,8 @@
 
 * Updated for R 4.5.0
 
+* Rebuilt data from original internet sources
+
 # mspflights 0.1.3
 
 * Enabled pkgdown [light switch](https://pkgdown.r-lib.org/articles/customise.html#light-switch)
