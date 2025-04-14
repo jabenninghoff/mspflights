@@ -23,12 +23,11 @@ raw <- read_csv("data-raw/airports.dat",
 )
 
 airports <- raw |>
-  filter(country == "United States", faa != "") |>
+  filter(country == "United States", nzchar(faa, keepNA = TRUE)) |>
   select(faa, name, lat, lon, alt, tz, dst, tzone) |>
   group_by(faa) |>
   slice(1) |>
   ungroup() # take first if duplicated
-
 
 # Verify the results
 airports |>

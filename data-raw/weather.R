@@ -10,7 +10,7 @@ library(lubridate)
 # Download ---------------------------------------------------------------------
 
 get_asos <- function(station) {
-  url <- "http://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?"
+  base_url <- "http://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?"
   query <- list(
     station = station, data = "all",
     year1 = "2013", month1 = "1", day1 = "1",
@@ -20,7 +20,7 @@ get_asos <- function(station) {
 
   dir.create("data-raw/weather", showWarnings = FALSE, recursive = TRUE)
   r <- GET(
-    url,
+    base_url,
     query = query, write_disk(paste0("./data-raw/weather/", station, ".csv")), progress()
   )
   stop_for_status(r)
