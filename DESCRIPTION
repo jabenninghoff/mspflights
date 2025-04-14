@@ -13,7 +13,7 @@ URL: https://jabenninghoff.github.io/mspflights/,
     https://github.com/jabenninghoff/mspflights
 BugReports: https://github.com/jabenninghoff/mspflights/issues
 Depends: 
-    R (>= 3.5.0)
+    R (>= 4.1.0)
 Imports: 
     tibble
 Suggests: 
