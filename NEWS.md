@@ -1,3 +1,7 @@
+# mspflights 0.1.5
+
+* Corrected GitHub language stats
+
 # mspflights 0.1.4
 
 * Updated for R 4.5.0
