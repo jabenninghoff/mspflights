@@ -13,7 +13,7 @@ download_month <- function(year, month) {
   file_url <- flight_url(year, month)
 
   temp <- tempfile(fileext = ".zip")
-  download.file(file_url, temp)
+  download.file(file_url, temp, mode = "wb")
 
   files <- unzip(temp, list = TRUE)
   # Only extract biggest file
