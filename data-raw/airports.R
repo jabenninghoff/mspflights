@@ -5,7 +5,8 @@ library(ggplot2)
 if (!file.exists("data-raw/airports.dat")) {
   download.file(
     "https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat",
-    "data-raw/airports.dat"
+    "data-raw/airports.dat",
+    mode = "wb"
   )
   readLines("data-raw/airports.dat") |>
     # run stri_trans_general first as iconv adds unwanted punctuation on macOS

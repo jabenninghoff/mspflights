@@ -15,7 +15,7 @@ hdr <- c(`Accept-Language` = "en-US,en", Connection = "keep-alive")
 
 if (!file.exists(lcl)) {
   tmp <- tempfile(fileext = ".zip")
-  withr::with_options(opt, download.file(src, tmp, headers = hdr))
+  withr::with_options(opt, download.file(src, tmp, headers = hdr, mode = "wb"))
 
   dir.create(lcl)
   unzip(tmp, exdir = lcl, junkpaths = TRUE)
