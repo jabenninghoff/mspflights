@@ -49,3 +49,5 @@ rsconnect/
 .DS_Store
 *.swp
 ~$*
+# RStudio 2026.04.0+526
+.positai

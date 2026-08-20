@@ -1,3 +1,7 @@
+# mspflights 0.1.6
+
+* Initial upkeep using `use_upkeep_issue()`
+
 # mspflights 0.1.5
 
 * Corrected GitHub language stats
