@@ -3447,7 +3447,7 @@
     },
     "rdev": {
       "Package": "rdev",
-      "Version": "1.19.1",
+      "Version": "1.19.3",
       "Source": "GitHub",
       "Title": "R Development Tools",
       "Authors@R": "person(\"John\", \"Benninghoff\", , \"jbenninghoff@mac.com\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0002-6230-4742\"))",
@@ -3488,7 +3488,7 @@
         "stringr",
         "styler (>= 1.4.0)",
         "tibble",
-        "urlchecker",
+        "urlchecker (>= 2.0.0)",
         "usethis",
         "utils",
         "withr",
@@ -3520,7 +3520,7 @@
       "RemoteUsername": "jabenninghoff",
       "RemoteRepo": "rdev",
       "RemoteRef": "main",
-      "RemoteSha": "ac3ae3b249af3ed5e04fdc3343bb67d86649579c"
+      "RemoteSha": "f4ea9c2a1cb17b0a8f9fae38fcbfe02c2467517f"
     },
     "rdtools": {
       "Package": "rdtools",
