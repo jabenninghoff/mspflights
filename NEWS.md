@@ -1,3 +1,7 @@
+# mspflights 0.1.7
+
+* Update R-CMD-check to run on macOS only
+
 # mspflights 0.1.6
 
 * Initial upkeep using `rdev::use_upkeep_issue()`
