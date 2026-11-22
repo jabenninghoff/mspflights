@@ -1,3 +1,7 @@
+# mspflights 0.1.8
+
+* Maintenance updates
+
 # mspflights 0.1.7
 
 * Update R-CMD-check to run on macOS only

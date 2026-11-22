@@ -4,8 +4,7 @@ options(
   warnPartialMatchDollar = TRUE,
   rdev.license.copyright = "John Benninghoff",
   rdev.url_check.fail = FALSE,
-  # TODO: workaround for issue fixed in renv 1.2.5+ (https://github.com/rstudio/renv/pull/2348)
-  # renv.config.crandb.enabled = TRUE,
+  renv.config.crandb.enabled = TRUE,
   styler.cache_root = "styler-perm"
 )
 
